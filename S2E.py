@@ -13,11 +13,12 @@ if filename != 'quit':
     plt.savefig(f'plot_{filename}')
     print(f'Plot saved in the current directory as plot_{filename}.')
 
+    print(f'In case it is unclear, the maximum energy of {scan.max_energy()[0]} Hartrees'
+          f'can be found at {scan.max_energy()[1] + 1}')
+
     retreive_xyz = input('Would you like to retrieve coordinates? y/n\n')
     if retreive_xyz != 'n':
         scan.xyz_of_one_scan(filename)
         print(f'.xyz file saved in the current directory as {filename}.xyz')
     print('Exiting module...')
     print('Module exited. Goodbye')
-
-
