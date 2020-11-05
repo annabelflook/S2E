@@ -55,6 +55,11 @@ class ScanToEnergies:
 
         return energies
 
+    def max_energy(self):
+        for scan_number, energy in enumerate(self.energies()):
+            if energy == max(self.energies()):
+                return energy, scan_number
+
     def scan_number(self):
         return list(range(1, len(self.energies()) + 1))
 
@@ -94,7 +99,6 @@ class ScanToEnergies:
 
     def xyz_of_one_scan(self, filename):
         scan_number = input('Enter Scan Number: ')
-        # filename = input('What would you like to save this scan as? ')
         with open(f'{filename}.xyz', 'a') as xyz_file:
             xyz_file.write(f'{self.number_of_atoms}\n')
             xyz_file.write(f'{filename}\n')
